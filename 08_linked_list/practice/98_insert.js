@@ -32,15 +32,20 @@ class LinkedList {
 
   // [5, 10, 15]
   insert(index, value) {
+    // check params
+    if (index === 0) {
+      return this.prepend(value);
+    }
+
     // get target node
     let targetNode = this.head;
-    for (let i = 0; i < index; i++) {
+    for (let i = 0; i < index - 1; i++) {
       targetNode = targetNode.next;
     }
 
     // update target node
-    const newNode = { value, next: targetNode };
-    targetNode = newNode;
+    const newNode = { value, next: targetNode.next };
+    targetNode.next = newNode;
     this.length++;
   }
 }
@@ -49,4 +54,5 @@ const linkedList = new LinkedList(10);
 linkedList.append(20);
 linkedList.append(30);
 linkedList.insert(0, 7);
+linkedList.insert(1, 7);
 linkedList.printList();
