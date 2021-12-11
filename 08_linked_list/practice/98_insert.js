@@ -29,9 +29,24 @@ class LinkedList {
 
     return arr;
   }
+
+  // [5, 10, 15]
+  insert(index, value) {
+    // get target node
+    let targetNode = this.head;
+    for (let i = 0; i < index; i++) {
+      targetNode = targetNode.next;
+    }
+
+    // update target node
+    const newNode = { value, next: targetNode };
+    targetNode = newNode;
+    this.length++;
+  }
 }
 
 const linkedList = new LinkedList(10);
 linkedList.append(20);
 linkedList.append(30);
+linkedList.insert(0, 7);
 linkedList.printList();
