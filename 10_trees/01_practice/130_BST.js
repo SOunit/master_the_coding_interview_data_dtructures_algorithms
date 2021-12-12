@@ -31,7 +31,7 @@ class BinarySearchTree {
         }
         targetNode = targetNode.right;
       } else {
-        if(!targetNode.left){
+        if (!targetNode.left) {
           targetNode.left = newNode;
           isKeep = false;
         }
@@ -41,6 +41,23 @@ class BinarySearchTree {
   }
   lookup(value) {
     //Code here
+    let targetNode = this.root;
+    while (true) {
+      // value not exist
+      if (!targetNode) {
+        return null;
+      }
+      // match
+      if (targetNode.value === value) {
+        return targetNode;
+      }
+      // check next
+      if (targetNode.value < value) {
+        targetNode = targetNode.right;
+      } else {
+        targetNode = targetNode.left;
+      }
+    }
   }
   // remove
 }
@@ -54,6 +71,10 @@ tree.insert(170);
 tree.insert(15);
 tree.insert(1);
 JSON.stringify(traverse(tree.root));
+console.log(tree.lookup(1));
+console.log(tree.lookup(9));
+console.log(tree.lookup(20));
+console.log(tree.lookup(200));
 
 //     9
 //  4     20
