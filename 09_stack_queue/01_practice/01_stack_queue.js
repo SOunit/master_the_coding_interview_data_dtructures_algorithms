@@ -1,5 +1,15 @@
-// add a method remove() to the linked list that deletes a node to the specified index.
- 
+class Stack {
+  constructor() {
+    this.data = [];
+  }
+}
+
+class Queue {
+  constructor() {
+    this.data = new LinkedList();
+  }
+}
+
 class LinkedList {
   constructor(value) {
     this.head = {
@@ -67,12 +77,3 @@ class LinkedList {
     return currentNode;
   }
 }
-
-let myLinkedList = new LinkedList(10);
-myLinkedList.append(5);
-myLinkedList.append(16);
-myLinkedList.prepend(1);
-myLinkedList.insert(2, 99);
-myLinkedList.insert(20, 88);
-myLinkedList.insert(0, 88);
-myLinkedList.printList();
